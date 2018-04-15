@@ -6,4 +6,4 @@
   sudo ln -sf /home/box/etc/qa.py /etc/gunicorn.d/qa.py
  
   gunicorn -D -c /etc/gunicorn.d/qa.py ask.wsgi:application
-  gunicorn -D -c /etc/gunicorn.d/hello.py hello:my_app
+  
