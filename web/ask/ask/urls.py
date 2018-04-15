@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^',include('qa.urls')),
+    url(r'^/$',include('qa.urls')),
     url(r'^signup/$',include('qa.urls')),
     url(r'^ask/$',include('qa.urls')),
     url(r'^popular/$',include('qa.urls')),
