@@ -1,5 +1,21 @@
 from __future__ import unicode_literals
 
-from django.db import models
+from django.db import models as dbmodels
 
+from django.contrib.auth import models as usmodels
 # Create your models here.
+
+class Question(dbmodels.Model)
+ title = dbmodels.CharField()
+ text = dbmodels.TextField()
+ added_at = dbmodels.DateTimeField()
+ rating = dbmodels.IntegerField()
+ author = dbmodels.ForeignKey(usmodels.User)
+ likes = dbmodels.ManyToManyField(usmodels.User)
+ 
+class Answer(dbmodels.Model)
+ text = dbmodels.TextField()
+ added_at = dbmodels.DateTimeField()
+ question = dbmodels.ForeignKey(usmodels.User)
+ author = dbmodels.ForeignKey(usmodels.User)
+
