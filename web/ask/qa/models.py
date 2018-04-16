@@ -12,6 +12,8 @@ class Question(dbmodels.Model):
  rating = dbmodels.IntegerField(default=10)
  author = dbmodels.ForeignKey(usmodels.User)
  likes = dbmodels.ManyToManyField(usmodels.User,related_name="question_like_user")
+ objects = QuestionManager()
+
 
 class Answer(dbmodels.Model):
  text = dbmodels.TextField()
