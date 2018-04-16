@@ -5,17 +5,24 @@ from django.db import models as dbmodels
 from django.contrib.auth import models as usmodels
 # Create your models here.
 
-class Question(dbmodels.Model)
+class Question(dbmodels.Model):
  title = dbmodels.CharField()
  text = dbmodels.TextField()
  added_at = dbmodels.DateTimeField()
  rating = dbmodels.IntegerField()
  author = dbmodels.ForeignKey(usmodels.User)
  likes = dbmodels.ManyToManyField(usmodels.User)
- 
-class Answer(dbmodels.Model)
+
+class Answer(dbmodels.Model):
  text = dbmodels.TextField()
  added_at = dbmodels.DateTimeField()
  question = dbmodels.ForeignKey(usmodels.User)
  author = dbmodels.ForeignKey(usmodels.User)
 
+class QuestionManager(dbmodels.Manager):
+ def new(self):
+  last_q = Question.objects.order_by("added_at")
+  return last_q
+ def popular(self):
+  return Question.objects.order_by("rating")
+  
