@@ -10,14 +10,14 @@ class Question(dbmodels.Model):
  text = dbmodels.TextField()
  added_at = dbmodels.DateTimeField()
  rating = dbmodels.IntegerField()
- author = dbmodels.ManyToManyField(usmodels.User)
+ author = dbmodels.ForeignKey(usmodels.User)
  likes = dbmodels.ManyToManyField(usmodels.User,related_name="question_like_user")
 
 class Answer(dbmodels.Model):
  text = dbmodels.TextField()
  added_at = dbmodels.DateTimeField()
  question = dbmodels.ForeignKey(Question)
- author = dbmodels.ManyToManyField(usmodels.User)
+ author = dbmodels.ForeignKey(usmodels.User)
 
 class QuestionManager(dbmodels.Manager):
  def new(self):
