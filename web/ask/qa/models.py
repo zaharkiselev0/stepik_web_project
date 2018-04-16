@@ -5,6 +5,12 @@ from django.db import models as dbmodels
 from django.contrib.auth import models as usmodels
 # Create your models here.
 
+class QuestionManager(dbmodels.Manager):
+ def new(self):
+  return self.order_by("added_at")
+ def popular(self):
+  return self.order_by("rating")
+
 class Question(dbmodels.Model):
  title = dbmodels.CharField(max_length = 255)
  text = dbmodels.TextField()
@@ -21,10 +27,4 @@ class Answer(dbmodels.Model):
  question = dbmodels.ForeignKey(Question)
  author = dbmodels.ForeignKey(usmodels.User)
 
-class QuestionManager(dbmodels.Manager):
- def new(self):
-  last_q = Question.objects.order_by("added_at")
-  return last_q
- def popular(self):
-  return Question.objects.order_by("rating")
-  
+
