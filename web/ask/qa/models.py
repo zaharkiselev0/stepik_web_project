@@ -17,7 +17,7 @@ class Answer(dbmodels.Model):
  text = dbmodels.TextField()
  added_at = dbmodels.DateTimeField()
  question = dbmodels.ForeignKey(Question)
- author = dbmodels.ForeignKey(usmodels.User)
+ author = dbmodels.ManyToManyField(usmodels.User)
 
 class QuestionManager(dbmodels.Manager):
  def new(self):
