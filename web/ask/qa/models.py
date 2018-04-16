@@ -8,8 +8,8 @@ from django.contrib.auth import models as usmodels
 class Question(dbmodels.Model):
  title = dbmodels.CharField(max_length = 255)
  text = dbmodels.TextField()
- added_at = dbmodels.DateTimeField()
- rating = dbmodels.IntegerField()
+ added_at = dbmodels.DateTimeField(blank=True,auto_now_add=True)
+ rating = dbmodels.IntegerField(default=10)
  author = dbmodels.ForeignKey(usmodels.User)
  likes = dbmodels.ManyToManyField(usmodels.User,related_name="question_like_user")
 
