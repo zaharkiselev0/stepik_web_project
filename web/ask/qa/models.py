@@ -6,17 +6,17 @@ from django.contrib.auth import models as usmodels
 # Create your models here.
 
 class Question(dbmodels.Model):
- title = dbmodels.CharField()
+ title = dbmodels.CharField(max_length = 255)
  text = dbmodels.TextField()
  added_at = dbmodels.DateTimeField()
  rating = dbmodels.IntegerField()
- author = dbmodels.ForeignKey(usmodels.User)
- likes = dbmodels.ManyToManyField(usmodels.User)
+ author = dbmodels.ManyToManyField(usmodels.User)
+ likes = dbmodels.ManyToManyField(usmodels.User,related_name="question_like_user")
 
 class Answer(dbmodels.Model):
  text = dbmodels.TextField()
  added_at = dbmodels.DateTimeField()
- question = dbmodels.ForeignKey(usmodels.User)
+ question = dbmodels.ForeignKey(Question)
  author = dbmodels.ForeignKey(usmodels.User)
 
 class QuestionManager(dbmodels.Manager):
