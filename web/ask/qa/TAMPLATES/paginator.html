@@ -1,0 +1,5 @@
+<>
+{% for p in paginator.page_range %}
+ <a href = "{{ paginator.baseurl }}{{ p.number }}">|{{ p.number }}</a>
+{% endfor %}
+</nav>
