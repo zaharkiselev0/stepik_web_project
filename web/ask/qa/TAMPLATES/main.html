@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8" />
+		<title>Главная страница</title>
+	</head>
+	<body>
+		<h1>Последние посты: </h1>
+		{% for q in questions %}
+		<h3><a href = "/question/{{q.pk}}/">{{q.title}}</a></h3>
+		<p>{{q.text | truncatechars:10 }}</p>
+		{% endfor %}	
+
+		{% include "paginator.html" %}
+	</body>
+</html>

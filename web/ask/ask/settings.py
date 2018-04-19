@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ask.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/box/web/ask/qa/TAMPLATES/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,6 +82,7 @@ DATABASES = {
     'QA': {	
 	'ENGINE': 'django.db.backends.mysql',
 	'NAME': 'QA',
+	'USER': 'root',
     }
 }
 
