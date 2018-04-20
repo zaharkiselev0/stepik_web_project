@@ -22,8 +22,8 @@ def popular(request):
  return main(request,"popular")
 
 def question(request,id):
- q = get_object_or_404(Question, id=id)
- answers = Answer.objects.filter(question=q)
+ q = get_object_or_404(Question,id=id)
+ answers = Answer.objects.filter(question__id = q.id)
  return render(request, 'question.html', {
   'q': q,
   'answers': answers,
