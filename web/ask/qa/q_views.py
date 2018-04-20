@@ -23,7 +23,7 @@ def popular(request):
 
 def question(request,id):
  q = get_object_or_404(Question,id=id)
- answers = Answer.objects.filter(question__id = q.id)
+ answers = Answer.objects.all()
  return render(request, 'question.html', {
   'q': q,
   'answers': answers,
