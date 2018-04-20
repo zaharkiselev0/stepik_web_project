@@ -13,7 +13,7 @@ class QuestionManager(dbmodels.Manager):
 
 class Question(dbmodels.Model):
  title = dbmodels.CharField(max_length = 255)
- text = dbmodels.TextField()
+ text = dbmodels.TextField(default = "default Question text")
  added_at = dbmodels.DateTimeField(blank=True,auto_now_add=True)
  rating = dbmodels.IntegerField(default=10)
  author = dbmodels.ForeignKey(usmodels.User)
@@ -22,7 +22,7 @@ class Question(dbmodels.Model):
 
 
 class Answer(dbmodels.Model):
- text = dbmodels.TextField()
+ text = dbmodels.TextField(default = "default Answer text")
  added_at = dbmodels.DateTimeField()
  question = dbmodels.ForeignKey(Question)
  author = dbmodels.ForeignKey(usmodels.User)
