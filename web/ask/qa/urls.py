@@ -10,5 +10,5 @@ urlpatterns = [
  url(r'^ask/$',test,name='test'),
  url(r'^new/$',test,name='test'),
  url(r'^popular/$',popular,name='popular'),
- url(r'^question/(?P<id>\d+)/$',test,name='test'),
+ url(r'^question/(?P<id>\d+)/$',question,name='question'),
 ]
