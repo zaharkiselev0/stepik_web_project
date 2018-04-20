@@ -10,3 +10,5 @@
   
   sudo /etc/init.d/mysql start
   mysql -uroot -e "create database QA"
+  python manage.py makemigrations
+  python manage.py migrate
