@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from qa.models import Answer, Question, QuestionManager
 from django.core.paginator import Paginator
 from qa.forms import AnswerForm
+from django.core.urlresolvers import reverse
 
 def main(request,sorted = "new"):
  if sorted == "popular":
@@ -35,5 +36,4 @@ def question(request,id):
   form = AnswerForm(request.POST)
   if form.is_valid():
    a = form.save()
-   url = a.get_url()
-   return HttpResponseRedirect(url)
+   return HttpResponseRedirect(request.get_full_path())

@@ -5,7 +5,7 @@ from qa.q_views import *
 from qa.ask_views import *
 
 urlpatterns = [
- url(r'^ask/$',q_add,name="q_add"),
+ url(r'^ask/$',q_add,name="ask"),
  url(r'^login/$',test,name='test'),
  url(r'^signup/$',test,name='test'),
  url(r'^new/$',test,name='test'),
