@@ -3,7 +3,6 @@ from django.contrib import admin
 from qa.views import test
 from qa.q_views import *
 from qa.ask_views import *
-from qa.ans_views import *
 
 urlpatterns = [
  url(r'^ask/$',q_add,name="q_add"),
