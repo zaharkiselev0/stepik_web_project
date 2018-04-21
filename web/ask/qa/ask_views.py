@@ -11,4 +11,4 @@ def q_add(request):
   form = AskForm(request.POST)
   if form.is_valid():
    q = form.save()
-   return HttpResponseRedirect(reverse('ask'))
+   return HttpResponseRedirect('http://localhost/question/%d/' %q.id)
