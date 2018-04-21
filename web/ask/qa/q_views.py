@@ -26,7 +26,7 @@ def popular(request):
 def question(request,id):
  if request.method == "GET":
   q = get_object_or_404(Question,id=id)
-  answers = Answer.objects.all()
+  answers = Answer.objects.filter(question=q)
   return render(request, 'question.html', {
    'q': q,
    'answers': answers,

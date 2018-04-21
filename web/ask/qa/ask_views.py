@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from qa.forms import AskForm
-from django.core.urlresolvers import reverse
 
 def q_add(request):
  if request.method == "GET":
@@ -11,4 +10,4 @@ def q_add(request):
   form = AskForm(request.POST)
   if form.is_valid():
    q = form.save()
-   return HttpResponseRedirect('http://localhost/question/%d/' %q.id)
+   return HttpResponseRedirect('/question/%d/'%q.id)
